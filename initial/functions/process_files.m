@@ -26,8 +26,8 @@ function [data,label] = process_files(datafile,annotfile)
     % Iterate over files
     for k=1:length(datafile)
         tic
-        fprintf("\tDatafile(%d/%d):\t'%s'\n",k,length(datafile),datafile(k));
-        fprintf("\t\t\t\t\t");
+        fprintf("\tDatafile(%d/%d):\t\t'%s'\n",k,length(datafile),datafile(k));
+        fprintf("\t\t\t\t\t\t");
         
         tt = edfread(datafile(k));
         
@@ -52,11 +52,14 @@ function [data,label] = process_files(datafile,annotfile)
         
         toc
         data = [data;features];
-        fprintf("\t\t\t\t\t%dx%d features extracted.\n",height(data),width(data));
+        fprintf("\t\t\t\t\t\t%dx%d features extracted.\n",height(features),width(features));
+        
+        % Annotations
+        annotations = get_annot(annotfile(k),length(features),epochlen);
+        label = [label;annotations];
+        
     end
     fprintf("Feature extraction complete.\n\n");
-    
-    fprintf("Converting annotations for %d hypnogram files..\n",length(annotfile));
     
 end
 %eof process_files()
