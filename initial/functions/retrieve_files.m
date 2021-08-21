@@ -1,5 +1,5 @@
 function [psgfile,hypfile] = retrieve_files(dirname,varargin)
-%RETRIEVE_FILES retrieve data files and annotation files from directory
+%RETRIEVE_FILES() retrieve data files and annotation filenames from directory
 %   retrieve_files(dirname) returns all files from directory
 %   retrieve_files(dirname,N) returns N files from directory
 
