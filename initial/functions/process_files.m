@@ -56,7 +56,14 @@ function [data,label] = process_files(datafile,annotfile)
         
         % Annotations
         annotations = get_annot(annotfile(k),length(features),epochlen);
+        fprintf("\t\t\t\t\t\t%d Annotation labels converted.\n",length(annotations));
         label = [label;annotations];
+        
+        % Check dimensions of features(data) and annotations(labels)
+        if ~isequal(length(data),length(label))
+            fprintf("Data: %d\t Label: %d\n",length(data),length(label));
+            error('Dimensions mismatch');
+        end
         
     end
     fprintf("Feature extraction and annotation conversion complete.\n");

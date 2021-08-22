@@ -1,4 +1,7 @@
 function aasm = rk2aasm(rk)
+%RK2AASM() converts annotaions from R&K method to AASM method
+%   R&K  : N/A, Sleep stage W, 1, 2, 3, 4, R
+%   AASM : N/A, W, N1, N2, N3, R
     
     aasm = string(ones(length(rk),1));
     
