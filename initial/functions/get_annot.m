@@ -10,6 +10,11 @@ function annotations = get_annot(filename,epochnum,epochlen)
         annotations(st(i):ed(i)) = annot.Annotations(i);
     end
     
+    % Initial epochs not annotated, then stage as "wake"
+    if st(1)>1
+        annotations(1:st(1)-1) = "Sleep stage W";
+    end
+    
     if ed(end)<epochnum
         annotations(ed(end)+1:epochnum) = annot.Annotations(end);
     end
