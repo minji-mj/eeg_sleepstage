@@ -21,6 +21,8 @@ function annotations = get_annot(filename,epochnum,epochlen)
         annotations(ed(end)+1:epochnum) = "N/A";
     end
     
+    % Convert from R&K to AASM sleep stages
+    % N/A, W, N1, N2, N3, R
     annotations = rk2aasm(annotations);
 end
 
