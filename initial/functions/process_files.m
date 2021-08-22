@@ -21,7 +21,7 @@ function [data,label] = process_files(datafile,annotfile)
         error('Number of files not equal');
     end
     
-    fprintf("Starting feature extraction over %d datafiles..\n",length(datafile));
+    fprintf("Processing %d files..\n",length(datafile));
     
     % Iterate over files
     for k=1:length(datafile)
@@ -59,7 +59,7 @@ function [data,label] = process_files(datafile,annotfile)
         label = [label;annotations];
         
     end
-    fprintf("Feature extraction complete.\n\n");
+    fprintf("Feature extraction and annotation conversion complete.\n");
     
 end
 %eof process_files()

@@ -10,13 +10,17 @@ function annotations = get_annot(filename,epochnum,epochlen)
         annotations(st(i):ed(i)) = annot.Annotations(i);
     end
     
-    % Initial epochs not annotated, then stage as "wake"
+    % Initial epochs not annotated
     if st(1)>1
-        annotations(1:st(1)-1) = "Sleep stage W";
+        annotations(1:st(1)-1) = "N/A";
     end
     
+    % Final epochs not annotated
     if ed(end)<epochnum
-        annotations(ed(end)+1:epochnum) = annot.Annotations(end);
+%         annotations(ed(end)+1:epochnum) = annot.Annotations(end);
+        annotations(ed(end)+1:epochnum) = "N/A";
     end
+    
+    annotations = rk2aasm(annotations);
 end
 
