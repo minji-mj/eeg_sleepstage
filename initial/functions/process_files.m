@@ -1,4 +1,6 @@
 function [data,label] = process_files(datafile,annotfile)
+%PROCESS_FILES() process PSG and Hypnogram files. Returns data(features)
+%and labels(annotations) to be used for model train
 
     data = [];
     label = [];
@@ -25,10 +27,13 @@ function [data,label] = process_files(datafile,annotfile)
     
     % Iterate over files
     for k=1:length(datafile)
-        tic
-        fprintf("\tDatafile(%d/%d):\t\t'%s'\n",k,length(datafile),datafile(k));
-        fprintf("\t\t\t\t\t\t");
         
+        tic % start timing
+        
+        fprintf("\tDatafile(%d/%d):\t'%s'\n",k,length(datafile),datafile(k));
+        fprintf("\t\t");
+        
+        % Read sleep-edf PSG file
         tt = edfread(datafile(k));
         
         % Iterate over epoch data
@@ -50,13 +55,17 @@ function [data,label] = process_files(datafile,annotfile)
             features = [features;ft_fpzcz ft_pzoz];
         end
         
-        toc
+        toc % time to extract features for current file
+        
+        % Append features extracted from current file to data
         data = [data;features];
-        fprintf("\t\t\t\t\t\t%dx%d features extracted.\n",height(features),width(features));
+        fprintf("\t\t%dx%d features extracted.\n",height(features),width(features));
         
         % Annotations
         annotations = get_annot(annotfile(k),length(features),epochlen);
-        fprintf("\t\t\t\t\t\t%d Annotation labels converted.\n",length(annotations));
+        fprintf("\t\t%d Annotation labels converted.\n",length(annotations));
+        
+        % Append annotations converted from current file to label
         label = [label;annotations];
         
         % Check dimensions of features(data) and annotations(labels)
@@ -69,4 +78,4 @@ function [data,label] = process_files(datafile,annotfile)
     fprintf("Feature extraction and annotation conversion complete.\n");
     
 end
-%eof process_files()
+%eof

@@ -1,5 +1,6 @@
 function Y = ft_bandpower(X,fs,bands)
-% biosig's bandpower (needs biosig toolbox)
+%FT_BANDPOWER()
+%Uses biosig's bandpower function (needs biosig toolbox)
 
     bpmode = 2;
     smoothing = 2.5; % seconds
@@ -21,4 +22,6 @@ function Y = ft_bandpower(X,fs,bands)
     rA = alpha/tot;
     
     Y = [delta theta alpha beta gamma 1/rAD 1/rGD rAT rBT rDT rA];
+    
 end
+%eof

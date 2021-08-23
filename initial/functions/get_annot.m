@@ -1,4 +1,6 @@
 function annotations = get_annot(filename,epochnum,epochlen)
+%GET_ANNOT() read annotations from sleep-edf Hypnogram file and convert to
+%appropriate epochs and labels
 
     % Read annotations from hypnogram file
     annotations = string(ones(epochnum,1));
@@ -36,4 +38,5 @@ function annotations = get_annot(filename,epochnum,epochlen)
     annotations = stage4(annotations);
 
 end
+%eof
 

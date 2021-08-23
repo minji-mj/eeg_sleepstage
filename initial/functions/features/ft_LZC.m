@@ -1,4 +1,6 @@
 function Y = ft_LZC(X)
+%FT_LZC() Lempel-Ziv Complexity feature
+
     medX = median(X);
     for i=1:length(X)
         if (X(i)<medX)
@@ -8,4 +10,6 @@ function Y = ft_LZC(X)
         end
     end
     Y = kolmogorov(X);
+    
 end
+%eof

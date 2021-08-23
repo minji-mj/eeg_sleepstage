@@ -12,7 +12,8 @@ addpath(genpath(pwd))
 % Default setting uses all files from directory
 %       i.e. [datafile,annotfile] = retrieve_files(dirname)
 % Specify number of files to use less number of files
-%       e.g. [datafile,annotfile] = retrieve_files(dirname,10);
+%       Take first N files from directory
+%       e.g. [datafile,annotfile] = retrieve_files(dirname,N);
 
 dirname = 'sleep-edf-telemetry';
 [datafile,annotfile] = retrieve_files(dirname);
@@ -22,4 +23,5 @@ dirname = 'sleep-edf-telemetry';
 
 % Train model
 fprintf("Preparing model train..\n");
+
 %eof

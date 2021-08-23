@@ -1,4 +1,5 @@
 function features = extractfeatures(X,fs,bands)
+%EXTRACTFEATURES()
     
     % bands
     %   {all, delta, theta, alpha, beta, gamma}
@@ -12,4 +13,4 @@ function features = extractfeatures(X,fs,bands)
     features = [fBP fLZC];
 
 end
-%eof extractfeatures()
+%eof

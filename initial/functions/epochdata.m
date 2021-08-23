@@ -1,4 +1,5 @@
 function Y = epochdata(X,epochlen,idx)
+%EPOCHDATA()
 
     % 10-s epochs
     if epochlen==10
