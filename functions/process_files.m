@@ -30,7 +30,7 @@ function [data,label] = process_files(datafile,annotfile)
         
         tic % start timing
         
-        fprintf("\tDatafile(%d/%d):\t'%s'\n",k,length(datafile),datafile(k));
+        fprintf("\tFile(%d/%d):\t'%s'\n",k,length(datafile),datafile(k));
         fprintf("\t\t");
         
         % Read sleep-edf PSG file

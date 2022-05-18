@@ -5,7 +5,7 @@ function features = extractfeatures(X,fs,bands)
     %   {all, delta, theta, alpha, beta, gamma}
     B = ones(length(bands),2);
     for i=1:length(bands)
-        B(i,:)=bands{i};
+        B(i,:) = bands{i};
     end
     
     fBP = ft_bandpower(X,fs,B);

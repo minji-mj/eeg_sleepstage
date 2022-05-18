@@ -16,7 +16,7 @@ addpath(genpath(pwd))
 %       e.g. [datafile,annotfile] = retrieve_files(dirname,N);
 
 dirname = 'sleep-edf-telemetry';
-[datafile,annotfile] = retrieve_files(dirname);
+[datafile,annotfile] = retrieve_files(dirname,10);
 
 % Prepare data and label for model
 [data,label] = process_files(datafile,annotfile);
